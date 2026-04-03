@@ -62,7 +62,7 @@ const CATEGORIES = [
 
 export default function Menu() {
   return (
-    <section id="menu" className="bg-bg-white py-16 pt-24 md:py-24 md:pt-32">
+    <section id="menu" className="bg-bg-white py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-8">
         <div className="mb-12 text-center">
           <span className="mb-2 inline-block text-4xl">🍹</span>
