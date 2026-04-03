@@ -1,4 +1,16 @@
 export default function HeroPattern() {
+  // Colors extracted from the actual mural
+  const C = {
+    magenta: "#E91E8C",
+    purple: "#9C27B0",
+    green: "#4CAF50",
+    lime: "#7CB342",
+    yellow: "#FFD600",
+    orange: "#FF6D00",
+    blue: "#2196F3",
+    darkGreen: "#2E7D32",
+  };
+
   return (
     <svg
       className="absolute inset-0 h-full w-full"
@@ -8,191 +20,195 @@ export default function HeroPattern() {
       aria-hidden="true"
     >
       <defs>
-        <clipPath id="viewport">
-          <rect x="0" y="0" width="1440" height="900" />
-        </clipPath>
+        <clipPath id="vp"><rect x="0" y="0" width="1440" height="900" /></clipPath>
       </defs>
 
-      <g clipPath="url(#viewport)">
-        {/* === BACKGROUND BLOCKS — irregular grid with semicircles === */}
+      <g clipPath="url(#vp)">
+        {/* ======= ROW 1 (y: 0–300) ======= */}
+        <rect x="0" y="0" width="260" height="300" fill={C.yellow} />
+        <rect x="260" y="0" width="220" height="180" fill={C.purple} />
+        <rect x="260" y="180" width="220" height="120" fill={C.green} />
+        <rect x="480" y="0" width="300" height="300" fill={C.green} />
+        <rect x="780" y="0" width="300" height="180" fill={C.orange} />
+        <rect x="780" y="180" width="140" height="120" fill={C.yellow} />
+        <rect x="920" y="180" width="160" height="120" fill={C.blue} />
+        <rect x="1080" y="0" width="200" height="300" fill={C.magenta} />
+        <rect x="1280" y="0" width="160" height="180" fill={C.yellow} />
+        <rect x="1280" y="180" width="160" height="120" fill={C.blue} />
 
-        {/* Row 1 (y: 0–320) */}
-        <rect x="0" y="0" width="380" height="320" fill="#FFB300" />
-        <rect x="380" y="0" width="220" height="180" fill="#E91E8C" />
-        <rect x="380" y="180" width="220" height="140" fill="#00BCD4" />
-        <rect x="600" y="0" width="340" height="320" fill="#7CB342" />
-        <rect x="940" y="0" width="240" height="180" fill="#E91E8C" />
-        <rect x="940" y="180" width="240" height="140" fill="#FF6D00" />
-        <rect x="1180" y="0" width="260" height="320" fill="#FFB300" />
+        {/* Quarter circle: yellow on blue, bottom-left corner of block */}
+        <path d="M480 300 A120 120 0 0 1 480 180 L480 300Z" fill={C.yellow} />
+        {/* Quarter circle: top-right corner */}
+        <path d="M1080 0 A130 130 0 0 1 1080 130 L1080 0Z" fill={C.purple} />
 
-        {/* Semicircle overlays on row 1 */}
-        <path d="M380 320 A110 110 0 0 1 380 100" fill="#FF6D00" opacity="0.7" />
-        <path d="M1180 0 A130 130 0 0 1 1180 260" fill="#E91E8C" opacity="0.5" />
-        <circle cx="600" cy="180" r="90" fill="#FFB300" opacity="0.4" />
+        {/* ======= ROW 2 (y: 300–600) ======= */}
+        <rect x="0" y="300" width="180" height="300" fill={C.magenta} />
+        <rect x="180" y="300" width="200" height="180" fill={C.green} />
+        <rect x="180" y="480" width="200" height="120" fill={C.yellow} />
+        <rect x="380" y="300" width="180" height="300" fill={C.purple} />
+        <rect x="560" y="300" width="280" height="160" fill={C.orange} />
+        <rect x="560" y="460" width="140" height="140" fill={C.yellow} />
+        <rect x="700" y="460" width="140" height="140" fill={C.blue} />
+        <rect x="840" y="300" width="240" height="300" fill={C.magenta} />
+        <rect x="1080" y="300" width="200" height="300" fill={C.green} />
+        <rect x="1280" y="300" width="160" height="160" fill={C.purple} />
+        <rect x="1280" y="460" width="160" height="140" fill={C.blue} />
 
-        {/* Row 2 (y: 320–600) */}
-        <rect x="0" y="320" width="200" height="280" fill="#E91E8C" />
-        <rect x="200" y="320" width="300" height="280" fill="#8BC34A" />
-        <rect x="500" y="320" width="260" height="160" fill="#FFB300" />
-        <rect x="500" y="480" width="260" height="120" fill="#E91E8C" />
-        <rect x="760" y="320" width="320" height="280" fill="#00BCD4" />
-        <rect x="1080" y="320" width="180" height="280" fill="#7CB342" />
-        <rect x="1260" y="320" width="180" height="160" fill="#E91E8C" />
-        <rect x="1260" y="480" width="180" height="120" fill="#8BC34A" />
+        {/* Quarter circle: green on purple, top-right corner */}
+        <path d="M560 300 L560 420 A120 120 0 0 1 560 300Z" fill={C.green} />
+        {/* Quarter circle: yellow on magenta, bottom-left */}
+        <path d="M840 600 A100 100 0 0 0 840 500 L840 600Z" fill={C.yellow} />
 
-        {/* Semicircle overlays on row 2 */}
-        <path d="M200 600 A140 140 0 0 0 200 320" fill="#FFB300" opacity="0.5" />
-        <path d="M760 600 A100 100 0 0 1 960 600" fill="#7CB342" opacity="0.4" />
-        <circle cx="1080" cy="480" r="80" fill="#FFB300" opacity="0.3" />
+        {/* Diagonal cut: bottom-right block */}
+        <polygon points="1280,460 1440,460 1440,600 1280,600" fill={C.blue} />
+        <polygon points="1280,460 1440,600 1280,600" fill={C.green} />
 
-        {/* Row 3 (y: 600–900) */}
-        <rect x="0" y="600" width="320" height="300" fill="#00BCD4" />
-        <rect x="320" y="600" width="260" height="300" fill="#E91E8C" />
-        <rect x="580" y="600" width="280" height="180" fill="#7CB342" />
-        <rect x="580" y="780" width="280" height="120" fill="#FFB300" />
-        <rect x="860" y="600" width="300" height="300" fill="#FF6D00" />
-        <rect x="1160" y="600" width="280" height="300" fill="#8BC34A" />
+        {/* ======= ROW 3 (y: 600–900) ======= */}
+        <rect x="0" y="600" width="250" height="300" fill={C.green} />
+        <rect x="250" y="600" width="220" height="180" fill={C.yellow} />
+        <rect x="250" y="780" width="220" height="120" fill={C.blue} />
+        <rect x="470" y="600" width="260" height="300" fill={C.magenta} />
+        <rect x="730" y="600" width="200" height="160" fill={C.green} />
+        <rect x="730" y="760" width="200" height="140" fill={C.yellow} />
+        <rect x="930" y="600" width="260" height="300" fill={C.purple} />
+        <rect x="1190" y="600" width="250" height="180" fill={C.orange} />
+        <rect x="1190" y="780" width="250" height="120" fill={C.green} />
 
-        {/* Semicircle overlays on row 3 */}
-        <path d="M320 600 A150 150 0 0 1 320 900" fill="#FFB300" opacity="0.5" />
-        <path d="M860 900 A120 120 0 0 0 860 660" fill="#E91E8C" opacity="0.4" />
-        <circle cx="1160" cy="750" r="100" fill="#00BCD4" opacity="0.35" />
+        {/* Quarter circle: magenta on green, top-left corner */}
+        <path d="M0 600 A140 140 0 0 0 140 600 L0 600Z" fill={C.magenta} />
+        {/* Quarter circle: orange on purple, bottom-right */}
+        <path d="M1190 900 A120 120 0 0 1 1190 780 L1190 900Z" fill={C.orange} />
 
-        {/* === FRUITS === */}
+        {/* Diagonal cut: bottom area */}
+        <polygon points="730,760 930,760 930,900 730,900" fill={C.yellow} />
+        <polygon points="730,760 930,900 730,900" fill={C.green} />
 
-        {/* MANGO — top left, large, overlapping blocks */}
-        <g transform="translate(60, 30) scale(1.1)">
-          <ellipse cx="120" cy="130" rx="115" ry="125" fill="#FF9800" />
-          <ellipse cx="100" cy="110" rx="70" ry="80" fill="#FFCA28" opacity="0.45" />
-          <ellipse cx="80" cy="85" rx="30" ry="40" fill="#FFE082" opacity="0.4" />
-          {/* Stem + leaf */}
-          <path d="M140 12 C145 5 150 8 148 15 C146 20 142 18 140 12Z" fill="#5D4037" />
-          <path d="M145 15 Q190 -30 215 5 Q185 25 145 15Z" fill="#2E7D32" />
-          <path d="M148 14 Q185 -15 205 8" stroke="#1B5E20" strokeWidth="2" fill="none" />
-          <path d="M138 18 Q110 -15 95 10 Q115 25 138 18Z" fill="#388E3C" />
+        {/* ======= FRUITS ======= */}
+
+        {/* MANGO — top left, overlapping yellow+purple blocks */}
+        <g transform="translate(40, 25) scale(1.15)">
+          <ellipse cx="115" cy="125" rx="112" ry="120" fill="#FF9800" />
+          <ellipse cx="95" cy="100" rx="65" ry="75" fill="#FFCA28" opacity="0.5" />
+          <ellipse cx="80" cy="80" rx="28" ry="38" fill="#FFE082" opacity="0.45" />
+          <path d="M135 10 C140 3 146 6 144 14 C142 19 137 16 135 10Z" fill="#5D4037" />
+          <path d="M140 14 Q185 -28 210 5 Q180 22 140 14Z" fill={C.darkGreen} />
+          <path d="M143 12 Q180 -12 200 8" stroke="#1B5E20" strokeWidth="2" fill="none" />
+          <path d="M133 17 Q105 -12 90 12 Q110 24 133 17Z" fill="#388E3C" />
         </g>
 
-        {/* PINEAPPLE — center, tallest fruit */}
-        <g transform="translate(540, 20) scale(1.15)">
-          {/* Crown of leaves — layered */}
-          <path d="M95 30 Q70 -40 100 -65 Q105 -20 95 30Z" fill="#2E7D32" />
-          <path d="M105 30 Q140 -50 160 -30 Q135 -5 105 30Z" fill="#43A047" />
-          <path d="M90 30 Q45 -30 65 -55 Q80 -15 90 30Z" fill="#388E3C" />
-          <path d="M110 25 Q155 -25 165 -5 Q140 5 110 25Z" fill="#66BB6A" />
-          <path d="M85 25 Q35 -10 50 -40 Q70 -5 85 25Z" fill="#4CAF50" />
-          <path d="M100 20 Q120 -35 140 -45 Q125 -10 100 20Z" fill="#81C784" />
-          {/* Body — rounder, more realistic */}
-          <ellipse cx="100" cy="160" rx="75" ry="125" fill="#FFC107" />
-          <ellipse cx="100" cy="155" rx="65" ry="110" fill="#FFD54F" opacity="0.3" />
-          {/* Diamond cross-hatch pattern */}
-          <g stroke="#F9A825" strokeWidth="1.8" opacity="0.5">
-            {[45, 85, 125, 165, 205, 245].map((y) => (
-              <line key={`h${y}`} x1="30" y1={y} x2="170" y2={y} />
+        {/* PINEAPPLE — center, largest */}
+        <g transform="translate(530, 60) scale(1.2)">
+          {/* Leaves */}
+          <path d="M95 30 Q68 -45 102 -70 Q107 -22 95 30Z" fill={C.darkGreen} />
+          <path d="M105 28 Q142 -52 162 -32 Q136 -6 105 28Z" fill="#388E3C" />
+          <path d="M88 28 Q42 -32 64 -58 Q78 -16 88 28Z" fill="#43A047" />
+          <path d="M112 22 Q158 -28 168 -8 Q142 4 112 22Z" fill="#66BB6A" />
+          <path d="M82 24 Q32 -12 48 -42 Q68 -8 82 24Z" fill="#4CAF50" />
+          <path d="M100 18 Q122 -38 142 -48 Q128 -12 100 18Z" fill="#81C784" />
+          {/* Body */}
+          <ellipse cx="100" cy="155" rx="78" ry="120" fill="#FFC107" />
+          {/* Cross-hatch diamond pattern */}
+          <g stroke="#F9A825" strokeWidth="2" opacity="0.55">
+            {[45, 85, 125, 165, 205, 240].map((y) => (
+              <line key={`h${y}`} x1="28" y1={y} x2="172" y2={y} />
             ))}
-            {[55, 80, 105, 130, 155].map((x) => (
-              <line key={`v${x}`} x1={x} y1="40" x2={x} y2="275" />
+            {[50, 75, 100, 125, 150].map((x) => (
+              <line key={`v${x}`} x1={x} y1="38" x2={x} y2="268" />
             ))}
           </g>
-          <ellipse cx="78" cy="120" rx="20" ry="45" fill="#FFE082" opacity="0.25" />
+          {/* Dots at intersections */}
+          {[
+            [75, 85], [100, 85], [125, 85],
+            [75, 125], [100, 125], [125, 125],
+            [75, 165], [100, 165], [125, 165],
+            [75, 205], [100, 205], [125, 205],
+          ].map(([cx, cy], i) => (
+            <circle key={`pd${i}`} cx={cx} cy={cy} r="3" fill="#F57F17" opacity="0.6" />
+          ))}
         </g>
 
-        {/* WATERMELON SLICE — top right, triangular */}
-        <g transform="translate(1020, 15) scale(1.1)">
+        {/* WATERMELON — top right, big triangle slice, PINK flesh (not red, like mural) */}
+        <g transform="translate(980, 10) scale(1.15)">
           {/* Green rind */}
-          <path d="M0 180 Q110 -30 220 180Z" fill="#388E3C" />
-          <path d="M8 172 Q110 -12 212 172Z" fill="#66BB6A" />
-          {/* White rind */}
-          <path d="M16 164 Q110 5 204 164Z" fill="#E8F5E9" />
-          {/* Red flesh */}
-          <path d="M24 156 Q110 18 196 156Z" fill="#E53935" />
-          <path d="M35 148 Q110 30 185 148Z" fill="#EF5350" opacity="0.4" />
-          {/* Seeds — tear-drop shaped */}
+          <path d="M0 190 Q120 -30 240 190Z" fill={C.darkGreen} />
+          {/* Light rind edge */}
+          <path d="M12 180 Q120 -10 228 180Z" fill="#A5D6A7" />
+          {/* Pink flesh (matching the mural — it's pink, not red) */}
+          <path d="M22 172 Q120 8 218 172Z" fill="#E91E8C" />
+          <path d="M34 162 Q120 22 206 162Z" fill="#EC407A" opacity="0.4" />
+          {/* Seeds */}
           {[
-            [70, 100, -20], [110, 85, 8], [150, 105, 15],
-            [90, 125, -10], [130, 120, 5], [80, 75, -5],
-            [140, 80, 12], [110, 140, 0],
+            [70, 110, -18], [120, 95, 5], [160, 115, 12],
+            [90, 135, -8], [140, 130, 10], [110, 150, 0],
+            [80, 80, -10], [150, 85, 8],
           ].map(([cx, cy, rot], i) => (
             <ellipse
               key={`ws${i}`}
-              cx={cx} cy={cy} rx="4.5" ry="7.5"
-              fill="#1B5E20"
+              cx={cx} cy={cy} rx="4" ry="7"
+              fill="#880E4F"
               transform={`rotate(${rot} ${cx} ${cy})`}
             />
           ))}
         </g>
 
-        {/* PASSION FRUIT — right side, cut in half */}
-        <g transform="translate(1100, 400) scale(1.05)">
-          <circle cx="85" cy="85" r="82" fill="#F9A825" />
-          <circle cx="85" cy="85" r="75" fill="#FFAB00" opacity="0.5" />
-          <circle cx="85" cy="85" r="62" fill="#FFF8E1" />
-          {/* Pulp ring */}
-          <circle cx="85" cy="85" r="62" fill="none" stroke="#FFD54F" strokeWidth="8" opacity="0.4" />
-          {/* Seeds — scattered organically */}
+        {/* PASSION FRUIT — right center */}
+        <g transform="translate(1080, 380) scale(1.05)">
+          <circle cx="85" cy="85" r="80" fill="#F9A825" />
+          <circle cx="85" cy="85" r="70" fill="#FFAB00" />
+          <circle cx="85" cy="85" r="60" fill="#FFF8E1" />
+          {/* Seeds */}
           {[
-            [58, 55], [78, 48], [98, 55], [110, 68],
-            [48, 75], [70, 68], [90, 70], [115, 82],
-            [52, 95], [75, 88], [95, 90], [108, 100],
-            [60, 112], [82, 108], [100, 112],
-            [72, 78], [88, 82], [65, 98],
+            [58, 52], [78, 46], [98, 52], [112, 66],
+            [46, 72], [68, 66], [88, 68], [108, 78],
+            [50, 92], [72, 86], [92, 88], [110, 96],
+            [58, 110], [80, 105], [100, 108],
+            [70, 76], [86, 80], [64, 96],
           ].map(([cx, cy], i) => (
-            <circle key={`ps${i}`} cx={cx} cy={cy} r={i % 3 === 0 ? 5.5 : 4.5} fill="#E65100" opacity="0.85" />
+            <circle key={`ps${i}`} cx={cx} cy={cy} r={i % 3 === 0 ? 5.5 : 4.5} fill="#E65100" />
           ))}
         </g>
 
-        {/* ORANGE HALF — bottom center-left */}
-        <g transform="translate(370, 610) scale(1.1)">
-          <circle cx="95" cy="95" r="92" fill="#FF9800" />
-          <circle cx="95" cy="95" r="82" fill="#FFB74D" />
-          <circle cx="95" cy="95" r="75" fill="#FFCC80" opacity="0.5" />
-          {/* Segments — radial lines */}
-          {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => {
+        {/* ORANGE HALF — bottom, semicircle on magenta block */}
+        <g transform="translate(540, 710)">
+          {/* Half orange — flat bottom */}
+          <path d="M0 95 A95 95 0 0 1 190 95 L0 95Z" fill="#FF9800" />
+          <path d="M10 95 A82 82 0 0 1 180 95 L10 95Z" fill="#FFB74D" />
+          {/* Segments */}
+          {[0, 30, 60, 90, 120, 150, 180].map((angle) => {
             const rad = (angle * Math.PI) / 180;
             return (
               <line
                 key={`os${angle}`}
                 x1="95" y1="95"
-                x2={95 + Math.cos(rad) * 72}
-                y2={95 + Math.sin(rad) * 72}
-                stroke="#FF9800" strokeWidth="3" opacity="0.6"
+                x2={95 + Math.cos(rad) * 75}
+                y2={95 - Math.sin(rad) * 75}
+                stroke="#FF9800" strokeWidth="3"
               />
             );
           })}
-          <circle cx="95" cy="95" r="14" fill="#FF9800" />
-          <circle cx="95" cy="95" r="8" fill="#E65100" opacity="0.3" />
+          <circle cx="95" cy="95" r="12" fill="#FF9800" />
         </g>
 
-        {/* LEMON — bottom left, partially visible */}
-        <g transform="translate(10, 660) scale(1.05)">
-          <ellipse cx="80" cy="70" rx="78" ry="65" fill="#CDDC39" />
-          <ellipse cx="65" cy="55" rx="40" ry="35" fill="#D4E157" opacity="0.5" />
-          <ellipse cx="55" cy="45" rx="18" ry="15" fill="#E6EE9C" opacity="0.35" />
-          {/* Leaf */}
-          <path d="M145 35 Q180 0 185 35 Q165 50 145 35Z" fill="#2E7D32" />
-          <path d="M150 36 Q175 10 180 35" stroke="#1B5E20" strokeWidth="1.8" fill="none" />
+        {/* CITRUS/LEMON — bottom left, partial */}
+        <g transform="translate(-10, 650) scale(1.05)">
+          <ellipse cx="80" cy="75" rx="80" ry="68" fill="#CDDC39" />
+          <ellipse cx="65" cy="58" rx="42" ry="36" fill="#D4E157" opacity="0.5" />
+          <path d="M148 38 Q182 5 186 40 Q168 52 148 38Z" fill={C.darkGreen} />
+          <path d="M152 39 Q178 14 182 40" stroke="#1B5E20" strokeWidth="2" fill="none" />
         </g>
 
-        {/* SMALL WATERMELON — left edge, peeking */}
-        <g transform="translate(-50, 370)">
-          <path d="M0 140 A70 70 0 0 1 140 140Z" fill="#388E3C" />
-          <path d="M10 135 A60 60 0 0 1 130 135Z" fill="#E53935" />
-          <ellipse cx="45" cy="105" rx="4" ry="6" fill="#1B5E20" />
-          <ellipse cx="75" cy="95" rx="4" ry="6" fill="#1B5E20" />
-          <ellipse cx="100" cy="110" rx="3.5" ry="5.5" fill="#1B5E20" />
-          <ellipse cx="60" cy="120" rx="3" ry="5" fill="#1B5E20" />
+        {/* SMALL MANGO — peeking bottom right */}
+        <g transform="translate(1300, 700)">
+          <ellipse cx="85" cy="85" rx="95" ry="90" fill="#FF9800" />
+          <ellipse cx="68" cy="68" rx="50" ry="48" fill="#FFCA28" opacity="0.45" />
+          <path d="M90 2 Q118 -22 126 8 Q110 18 90 2Z" fill={C.darkGreen} />
         </g>
 
-        {/* SMALL MANGO — bottom right, partial */}
-        <g transform="translate(1300, 720)">
-          <ellipse cx="80" cy="80" rx="90" ry="85" fill="#FF9800" />
-          <ellipse cx="65" cy="65" rx="50" ry="45" fill="#FFCA28" opacity="0.4" />
-          <path d="M85 0 Q110 -25 120 5 Q105 15 85 0Z" fill="#2E7D32" />
+        {/* BANANA/LEMON shape — top right edge, peeking like in mural */}
+        <g transform="translate(1340, 0)">
+          <ellipse cx="60" cy="120" rx="55" ry="110" fill={C.yellow} />
+          <ellipse cx="48" cy="100" rx="30" ry="65" fill="#FFF176" opacity="0.4" />
         </g>
-
-        {/* Extra semicircle decorations overlapping fruits — like the mural */}
-        <path d="M0 0 A180 180 0 0 1 0 360" fill="#00BCD4" opacity="0.15" />
-        <path d="M1440 450 A160 160 0 0 0 1440 770" fill="#FFB300" opacity="0.15" />
-        <path d="M720 900 A200 200 0 0 1 1120 900" fill="#E91E8C" opacity="0.12" />
       </g>
     </svg>
   );
