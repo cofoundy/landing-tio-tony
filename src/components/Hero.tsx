@@ -1,39 +1,23 @@
 import Image from "next/image";
-import fachadaImg from "@/assets/fachada.webp";
 import logoImg from "@/assets/logo-40.png";
+import HeroPattern from "./HeroPattern";
 
 export default function Hero() {
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden">
-      {/* Background image */}
-      <Image
-        src={fachadaImg}
-        alt="Fachada de El Tío Tony con mural de frutas coloridas"
-        fill
-        className="object-cover object-center"
-        priority
-        placeholder="blur"
-      />
-
-      {/* Directional overlay — heavier on the left where text lives */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-black/20" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
-
-      {/* Floating fruit decorations — hidden on mobile for perf */}
-      <div className="pointer-events-none absolute inset-0 hidden md:block">
-        <span className="float-slow absolute right-[10%] top-[20%] text-5xl opacity-50">
-          🍉
-        </span>
-        <span className="float-medium absolute right-[25%] bottom-[25%] text-4xl opacity-40">
-          🍊
-        </span>
+      {/* Geometric fruit pattern background */}
+      <div className="absolute inset-0 bg-[#FFB300]">
+        <HeroPattern />
       </div>
+
+      {/* Overlay — lighter than photo version since pattern is controlled */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 py-32 md:px-8">
         <div className="max-w-xl">
-          {/* Glass card for text readability */}
-          <div className="rounded-3xl bg-black/30 p-6 backdrop-blur-sm md:bg-black/20 md:p-8 md:backdrop-blur-md">
+          <div className="rounded-3xl bg-black/25 p-6 backdrop-blur-sm md:bg-black/15 md:p-8 md:backdrop-blur-md">
             <div className="hero-animate mb-4 flex items-center gap-3">
               <Image src={logoImg} alt="" width={40} height={40} className="object-contain drop-shadow-lg" />
               <p className="inline-block rounded-full bg-accent/90 px-4 py-1.5 font-body text-sm font-bold text-text">
