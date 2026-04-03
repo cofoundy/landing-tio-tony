@@ -1,3 +1,6 @@
+import Image from "next/image";
+import logoImg from "@/assets/logo-40.png";
+
 export default function CtaBanner() {
   return (
     <section className="relative overflow-hidden bg-primary py-16 md:py-20">
@@ -6,8 +9,12 @@ export default function CtaBanner() {
       <div className="pointer-events-none absolute -bottom-16 -right-16 h-48 w-48 rounded-full bg-white/10" />
       <div className="pointer-events-none absolute right-1/4 top-1/4 h-24 w-24 rounded-full bg-accent/20" />
 
+      {/* Logo watermark */}
+      <div className="pointer-events-none absolute right-[5%] top-1/2 -translate-y-1/2 opacity-[0.08] md:right-[10%]">
+        <Image src={logoImg} alt="" width={280} height={280} className="object-contain" />
+      </div>
+
       <div className="relative z-10 mx-auto max-w-3xl px-4 text-center md:px-8">
-        <span className="mb-4 inline-block text-5xl">🍹</span>
         <h2 className="font-display text-3xl font-bold text-white md:text-5xl">
           ¿Listo para arrancar el día con energía?
         </h2>

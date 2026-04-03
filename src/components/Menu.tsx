@@ -2,17 +2,19 @@ const CATEGORIES = [
   {
     name: "Desayunos Calientes",
     emoji: "☕",
-    color: "bg-orange/10 border-orange/30",
+    gradient: "from-orange/20 to-orange/5",
+    accent: "text-orange",
     items: [
       { name: "Quinua especial", desc: "Piña + manzana de agua + membrillo", price: "S/1.50" },
       { name: "Maca energética", desc: "Bebida caliente de maca", price: "S/1.50" },
-      { name: "Café / Leche / Infusiones", desc: "Bebidas clásicas para calentar", price: "S/1.00" },
+      { name: "Café / Leche / Infusiones", desc: "Bebidas clásicas", price: "S/1.00" },
     ],
   },
   {
     name: "Panes Nutritivos",
     emoji: "🥖",
-    color: "bg-accent/10 border-accent/30",
+    gradient: "from-accent/20 to-accent/5",
+    accent: "text-orange",
     items: [
       { name: "Pan con huevo frito", desc: "Clásico y rendidor", price: "S/1.50" },
       { name: "Pan con palta", desc: "Cremoso y nutritivo", price: "S/1.50" },
@@ -23,19 +25,22 @@ const CATEGORIES = [
   {
     name: "Jugos Naturales",
     emoji: "🍊",
-    color: "bg-primary/10 border-primary/30",
+    gradient: "from-primary/20 to-primary/5",
+    accent: "text-primary",
     items: [
       { name: "Papaya + leche", desc: "Cremoso y digestivo", price: "S/2.00" },
       { name: "Fresa + plátano", desc: "El favorito", price: "S/2.00" },
       { name: "Piña + naranja", desc: "Vitamina C pura", price: "S/2.00" },
-      { name: "Surtido energético", desc: "Mix de frutas de temporada", price: "S/2.50" },
+      { name: "Surtido energético", desc: "Mix de temporada", price: "S/2.50" },
       { name: "Especial de la casa", desc: "La receta del Tío Tony", price: "S/3.00" },
     ],
   },
   {
     name: "Combos",
     emoji: "⚡",
-    color: "bg-secondary/10 border-secondary/30",
+    gradient: "from-secondary/20 to-secondary/5",
+    accent: "text-secondary",
+    featured: true,
     items: [
       { name: "Combo Universitario", desc: "Quinua + pan + jugo", price: "<<PRECIO>>" },
       { name: "Combo Power", desc: "Jugo + 2 panes", price: "<<PRECIO>>" },
@@ -45,7 +50,8 @@ const CATEGORIES = [
   {
     name: "Extras",
     emoji: "🍨",
-    color: "bg-cyan/10 border-cyan/30",
+    gradient: "from-cyan/20 to-cyan/5",
+    accent: "text-cyan",
     items: [
       { name: "Ensalada de frutas", desc: "Fruta fresca picada", price: "S/2.00" },
       { name: "Gelatina", desc: "Postre clásico", price: "S/1.00" },
@@ -56,7 +62,7 @@ const CATEGORIES = [
 
 export default function Menu() {
   return (
-    <section id="menu" className="bg-bg-white py-16 md:py-24">
+    <section id="menu" className="bg-bg-white py-16 pt-24 md:py-24 md:pt-32">
       <div className="mx-auto max-w-6xl px-4 md:px-8">
         <div className="mb-12 text-center">
           <span className="mb-2 inline-block text-4xl">🍹</span>
@@ -64,46 +70,53 @@ export default function Menu() {
             Nuestro Menú
           </h2>
           <p className="mt-3 font-body text-lg text-text-muted">
-            Todo preparado al momento, con ingredientes frescos del mercado
+            Todo preparado al momento con ingredientes frescos del mercado
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {CATEGORIES.map((cat) => (
             <div
               key={cat.name}
-              className={`menu-card scroll-animate rounded-2xl border-2 ${cat.color} p-6`}
+              className={`menu-card scroll-animate overflow-hidden rounded-2xl bg-gradient-to-br ${cat.gradient} p-1 ${"featured" in cat && cat.featured ? "ring-2 ring-secondary/30 lg:col-span-1" : ""}`}
             >
-              <div className="mb-4 flex items-center gap-3">
-                <span className="text-3xl">{cat.emoji}</span>
-                <h3 className="font-display text-xl font-bold text-text">
-                  {cat.name}
-                </h3>
-              </div>
+              <div className="h-full rounded-xl bg-white/80 p-5 backdrop-blur-sm">
+                <div className="mb-4 flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-2xl shadow-sm">
+                    {cat.emoji}
+                  </span>
+                  <h3 className="font-display text-lg font-bold text-text">
+                    {cat.name}
+                  </h3>
+                </div>
 
-              <ul className="space-y-3">
-                {cat.items.map((item) => (
-                  <li key={item.name} className="flex items-start justify-between gap-2">
-                    <div>
-                      <p className="font-body text-sm font-semibold text-text">
-                        {item.name}
-                      </p>
-                      <p className="font-body text-xs text-text-muted">
-                        {item.desc}
-                      </p>
-                    </div>
-                    <span
-                      className={`shrink-0 rounded-full px-2 py-0.5 font-display text-sm font-bold ${
-                        item.price.startsWith("<<")
-                          ? "bg-accent/20 text-orange"
-                          : "bg-accent/20 text-text"
-                      }`}
+                <ul className="space-y-2.5">
+                  {cat.items.map((item) => (
+                    <li
+                      key={item.name}
+                      className="flex items-center justify-between gap-2 rounded-lg px-2 py-1.5 transition-colors hover:bg-white"
                     >
-                      {item.price}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+                      <div className="min-w-0">
+                        <p className="truncate font-body text-sm font-semibold text-text">
+                          {item.name}
+                        </p>
+                        <p className="truncate font-body text-xs text-text-muted">
+                          {item.desc}
+                        </p>
+                      </div>
+                      <span
+                        className={`shrink-0 font-display text-lg font-bold ${
+                          item.price.startsWith("<<")
+                            ? "text-sm text-orange/60"
+                            : cat.accent
+                        }`}
+                      >
+                        {item.price.startsWith("<<") ? "—" : item.price}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>

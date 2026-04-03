@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Highlights from "@/components/Highlights";
 import Menu from "@/components/Menu";
 import About from "@/components/About";
 import Location from "@/components/Location";
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <Highlights />
         <Menu />
         <About />
         <CtaBanner />
