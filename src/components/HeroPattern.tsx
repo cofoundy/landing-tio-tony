@@ -1,13 +1,13 @@
 export default function HeroPattern() {
-  // Mural palette
-  const M = "#E91E8C";
-  const P = "#9C27B0";
-  const G = "#4CAF50";
-  const Y = "#FFD600";
-  const O = "#FF6D00";
-  const B = "#2196F3";
+  // Mural palette — matched to fachada-noche.jpeg
+  const M = "#E91E8C"; // magenta
+  const P = "#9C27B0"; // purple
+  const G = "#4CAF50"; // green
+  const Y = "#FFD600"; // yellow
+  const O = "#FF6D00"; // orange
+  const B = "#2196F3"; // blue
 
-  // r = quarter circle radius matching block edges
+  // Quarter-circle radius
   const R = 160;
 
   return (
@@ -18,114 +18,120 @@ export default function HeroPattern() {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      {/* === CLEAN GRID — 6 columns × 3 rows === */}
+      {/* === GRID — varied block sizes matching the real mural === */}
 
       {/* Row 1 (0–300) */}
-      <rect x="0"    y="0" width="480" height="300" fill={Y} />
-      <rect x="480"  y="0" width="240" height="300" fill={M} />
-      <rect x="720"  y="0" width="360" height="300" fill={G} />
-      <rect x="1080" y="0" width="360" height="300" fill={O} />
+      <rect x="0" y="0" width="480" height="300" fill={Y} />
+      <rect x="480" y="0" width="240" height="300" fill={M} />
+      <rect x="720" y="0" width="360" height="300" fill={G} />
+      <rect x="1080" y="0" width="200" height="300" fill={O} />
+      <rect x="1280" y="0" width="160" height="300" fill={G} />
 
       {/* Row 2 (300–600) */}
-      <rect x="0"    y="300" width="360" height="300" fill={G} />
-      <rect x="360"  y="300" width="300" height="300" fill={P} />
-      <rect x="660"  y="300" width="300" height="300" fill={Y} />
-      <rect x="960"  y="300" width="240" height="300" fill={B} />
+      <rect x="0" y="300" width="360" height="300" fill={G} />
+      <rect x="360" y="300" width="300" height="300" fill={P} />
+      <rect x="660" y="300" width="300" height="300" fill={Y} />
+      <rect x="960" y="300" width="240" height="300" fill={B} />
       <rect x="1200" y="300" width="240" height="300" fill={M} />
 
       {/* Row 3 (600–900) */}
-      <rect x="0"    y="600" width="300" height="300" fill={M} />
-      <rect x="300"  y="600" width="360" height="300" fill={P} />
-      <rect x="660"  y="600" width="300" height="300" fill={G} />
-      <rect x="960"  y="600" width="480" height="300" fill={Y} />
+      <rect x="0" y="600" width="300" height="300" fill={M} />
+      <rect x="300" y="600" width="360" height="300" fill={P} />
+      <rect x="660" y="600" width="240" height="300" fill={G} />
+      <rect x="900" y="600" width="280" height="300" fill={Y} />
+      <rect x="1180" y="600" width="260" height="300" fill={O} />
 
-      {/* === QUARTER CIRCLES — building block style, attached to block edges === */}
+      {/* === QUARTER CIRCLES — distributed across the whole canvas === */}
 
-      {/* Block: yellow(row1) has a cyan quarter-circle biting into its bottom-right corner */}
-      {/* This reads as: "the blue block(row2) extends a curve into the yellow above" */}
+      {/* Left: blue bites into yellow (row1→row2 boundary, x=480) */}
       <path d={`M480 300 L480 ${300 - R} A${R} ${R} 0 0 0 ${480 - R} 300 Z`} fill={B} />
 
-      {/* Block: green(row2) has a yellow quarter-circle in its top-right corner */}
-      {/* "The yellow block(row1) extends a curve down into the green below" */}
+      {/* Left: yellow extends down into green (row1→row2 boundary, x=360) */}
       <path d={`M360 300 L${360 + R} 300 A${R} ${R} 0 0 0 360 ${300 + R} Z`} fill={Y} />
 
-      {/* Block: purple(row3) has an orange quarter-circle in its top-left corner */}
+      {/* Center-left: orange bites into purple (row2→row3 boundary, x=300) */}
       <path d={`M300 600 L300 ${600 + R} A${R} ${R} 0 0 0 ${300 + R} 600 Z`} fill={O} />
 
-      {/* === FRUITS === */}
+      {/* RIGHT: green curve into orange (row1, top-right corner at x=1080) */}
+      <path d={`M1080 0 L1080 ${R} A${R} ${R} 0 0 0 ${1080 + R} 0 Z`} fill={G} />
 
-      {/* MANGO — top left on yellow block */}
-      <g transform="translate(50, 30) scale(1.15)">
-        <ellipse cx="110" cy="115" rx="108" ry="112" fill="#FF9800" />
-        <ellipse cx="90" cy="92" rx="58" ry="68" fill="#FFCA28" opacity="0.5" />
-        <path d="M132 8 Q178 -28 200 5 Q172 20 132 8Z" fill="#2E7D32" />
-        <path d="M136 7 Q172 -14 194 7" stroke="#1B5E20" strokeWidth="2" fill="none" />
-        <path d="M125 14 Q98 -12 84 12 Q104 22 125 14Z" fill="#388E3C" />
+      {/* RIGHT: yellow curves into blue (row2→row3 boundary, x=960) */}
+      <path d={`M960 600 L${960 + R} 600 A${R} ${R} 0 0 1 960 ${600 - R} Z`} fill={Y} />
+
+      {/* RIGHT: magenta curve into yellow (row3, bottom-right at x=1180) */}
+      <path d={`M1180 900 L1180 ${900 - R} A${R} ${R} 0 0 0 ${1180 - R} 900 Z`} fill={M} />
+
+      {/* === FRUITS — Twemoji (CC-BY 4.0) + custom geometric === */}
+
+      {/* MANGO — Twemoji, top-left on yellow block */}
+      <g transform="translate(40, 20) scale(6.5)">
+        <path fill="#77B255" d="M26.38 3.539c.483-.039 1.259-.655 1.664-.595.405.06 1.573 1.078 1.67 1.283.097.205-.637 1.178-.746 1.48-.109.302-.64.239-1.51-.543-.869-.782-1.078-1.625-1.078-1.625z"/>
+        <path fill="#EA564B" d="M12.3 3.139c4.545-2.66 11.267-2.611 13.685-.58 1.617 1.358 2.942 2.401 4.474 3.011 2.022.804 3.692 3.154 4.415 5.384.981 3.023 1.68 12.579-8.029 18.516-6.233 3.812-17.656 5.363-18.961 4.723-.984-.483-4.621-2.09-6.675-6.453S-1.324 11.111 12.3 3.139z"/>
+        <path fill="#F97253" d="M17.329 2.607C22.578 1.125 26.5 4.743 24.078 5c-4.359.463-9.015 4.969-12.625 8.375-6.625 6.25-8.125 13.75-9 12.5-1.424-2.034-1.468-9.148 3.561-15.386 5.029-6.238 9.104-7.257 11.315-7.882z"/>
+        <path fill="#77B255" d="M28.271 4.278c2.174.697 4.987 4.564 4.944 7.811-.114 8.655-4.132 11.992-4.132 11.992s-2.551-9.325-2.171-12.719c.278-2.478 1.646-3.166 1.891-4.569.229-1.305-.532-2.515-.532-2.515z"/>
       </g>
 
-      {/* PINEAPPLE — center, on green/magenta blocks */}
-      <g transform="translate(620, 20) scale(1.2)">
-        <path d="M80 30 Q55 -38 88 -62 Q92 -16 80 30Z" fill="#2E7D32" />
-        <path d="M90 28 Q128 -48 150 -26 Q124 -4 90 28Z" fill="#388E3C" />
-        <path d="M72 28 Q30 -28 52 -50 Q64 -12 72 28Z" fill="#43A047" />
-        <path d="M96 22 Q140 -22 152 -2 Q128 8 96 22Z" fill="#66BB6A" />
-        <path d="M68 24 Q24 -8 38 -36 Q56 -4 68 24Z" fill="#4CAF50" />
-        <ellipse cx="84" cy="150" rx="70" ry="115" fill="#FFC107" />
-        <g stroke="#F9A825" strokeWidth="1.8" opacity="0.5">
-          {[48, 82, 116, 150, 184, 218].map((y) => (
-            <line key={`h${y}`} x1="18" y1={y} x2="150" y2={y} />
-          ))}
-          {[44, 68, 92, 116].map((x) => (
-            <line key={`v${x}`} x1={x} y1="38" x2={x} y2="256" />
-          ))}
-        </g>
+      {/* PINEAPPLE — Twemoji, center spanning green & yellow blocks */}
+      <g transform="translate(700, 30) scale(8)">
+        <path fill="#5C913B" d="M18.241 9.633c-.277-3.307 2.17-4.72 2.17-4.72-3.199.113-4.894 2.826-4.894 2.826-.752-1.3.946-4.012 2.169-4.719-3.198.113-3.67 2.12-3.67 2.12-1.503-2.601-1.03-4.607-1.03-4.607-1.121.647-1.767 2.113-2.141 3.512l-2.318-2.67c-.23 1.044.157 3.174.573 4.959-3.055-1.79-5.903-.15-5.903-.15 3.95 1.188 5.45 3.788 5.45 3.788s-3.948-1.187-5.646 1.526c2.597-.092 4.5.499 5.856 1.23-1.163.289-3.145-.236-4.355 1.371 0 0 3.198-.113 3.851 1.055-2.172.614-3.575 2.251-3.575 2.251 4.422-.818 9.123 1.669 9.123 1.669l6.119-3.532c-1.029-4.607 2.642-6.727 2.642-6.727-2.724-1.895-4.421.818-4.421.818z"/>
+        <path fill="#FFAC33" d="M29.56 22.88c2.488 4.309 1.218 9.7-2.837 12.041-4.055 2.341-9.359.746-11.846-3.562l-1.589-2.753c-2.488-4.31-1.217-9.699 2.837-12.04 4.055-2.341 9.359-.747 11.846 3.562l1.589 2.752z"/>
+        <path fill="#FFCC4D" d="M30.562 25.364c-.209-.848-.54-1.685-1.002-2.484l-.186-.323v.001l-1.951-.828.624-1.471-.075-.131c-2.025-3.51-5.92-5.217-9.486-4.466l-.818 1.926-1.884-.8c-3.28 2.122-4.567 6.319-3.262 10.128l1.006.427-.401.946c.055.105.102.212.163.315l1.589 2.753c.685 1.187 1.59 2.16 2.618 2.909l.229-.538 1.951.828-.324.764c.665.277 1.357.465 2.061.572l.215-.507 1.403.595c1.144-.048 2.28-.336 3.343-.883l-.017-.007.828-1.951 1.189.504c.522-.521.973-1.104 1.334-1.736l-1.693-.72.828-1.951 1.667.707c.191-.7.301-1.427.316-2.167l-1.155-.49.828-1.951.062.029zm-6.212-7.243l1.95.829-.828 1.95-1.951-.828.829-1.951zm.294 4.731l-.828 1.95-1.951-.827.828-1.951 1.951.828zm-4.197-6.387l1.951.828-.829 1.952-1.951-.828.829-1.952zm-1.656 3.902l1.951.828-.828 1.951-1.95-.828.827-1.951zm-3.902-1.655l1.95.828-.828 1.949-1.95-.828.828-1.949zm-2.484 5.853l.828-1.952 1.951.828-.829 1.952-1.95-.828zm4.196 6.385l-1.951-.827.828-1.951 1.951.828-.828 1.95zm-.295-4.73l.829-1.951 1.951.827-.829 1.952-1.951-.828zm4.196 6.386l-1.95-.828.828-1.95 1.95.829-.828 1.949zm-.294-4.73l.828-1.952 1.951.829-.828 1.952-1.951-.829zm4.197 6.388l-1.951-.828.828-1.951 1.951.828-.828 1.951zm1.657-3.904l-1.95-.827.828-1.952 1.95.828-.828 1.951zm1.656-3.901l-1.951-.828.828-1.95 1.951.827-.828 1.951z"/>
       </g>
 
-      {/* WATERMELON — top right, on orange block */}
-      <g transform="translate(1060, 20) scale(1.1)">
-        <path d="M0 170 Q100 -20 200 170Z" fill="#2E7D32" />
-        <path d="M10 162 Q100 -2 190 162Z" fill="#A5D6A7" />
-        <path d="M20 154 Q100 12 180 154Z" fill={M} />
+      {/* WATERMELON — Twemoji, top-right on orange block */}
+      <g transform="translate(1068, 18) scale(7)">
+        <path fill="#5C913B" d="M2.472 6.572C1.528 8.698 1 11.038 1 13.5 1 23.165 9.059 31 19 31c7.746 0 14.33-4.767 16.868-11.44L2.472 6.572z"/>
+        <path fill="#FFE8B6" d="M4.332 7.295C3.479 9.197 3 11.293 3 13.5c0 8.591 7.164 15.556 16 15.556 6.904 0 12.77-4.26 15.013-10.218L4.332 7.295z"/>
+        <path fill="#DD2E44" d="M6.191 8.019C5.43 9.697 5 11.548 5 13.5c0 7.518 6.268 13.611 14 13.611 6.062 0 11.21-3.753 13.156-8.995L6.191 8.019z"/>
+        <path d="M9.916 14.277c-.307.46-.741.708-.971.555-.23-.153-.168-.649.139-1.109.307-.46.741-.708.971-.555.23.153.168.649-.139 1.109zm6 1c-.307.46-.741.708-.971.555-.23-.153-.168-.649.139-1.109.307-.46.741-.708.971-.555.23.153.168.649-.139 1.109zm5.082 4.678c.05.551-.132 1.016-.406 1.041-.275.025-.538-.4-.588-.951-.051-.551.132-1.016.406-1.04.275-.026.538.398.588.95zm-9-2c.05.551-.132 1.016-.406 1.041-.275.025-.538-.4-.588-.951-.05-.551.132-1.016.406-1.04.276-.026.538.398.588.95zm3.901 5.346c-.333.441-.78.663-1 .497-.221-.166-.129-.658.205-1.099.333-.441.781-.663 1-.497.221.166.13.657-.205 1.099zm8.036.454c.273.481.299.979.06 1.115-.241.137-.656-.143-.929-.624-.273-.48-.299-.979-.059-1.115.241-.138.655.141.928.624zm-7.017-5.028c.303.463.362.958.131 1.109-.231.152-.663-.1-.966-.562-.303-.462-.361-.958-.131-1.108.231-.154.663.097.966.561zm8.981 1.574c-.333.441-.78.663-1.001.497-.221-.166-.129-.658.205-1.099.333-.442.78-.663 1-.497.222.166.131.657-.204 1.099z"/>
+      </g>
+
+      {/* BANANA — Twemoji, right edge peeking on green block */}
+      <g transform="translate(1290, 10) scale(7)">
+        <path fill="#FFE8B6" d="M28 2c2.684-1.342 5 4 3 13-1.106 4.977-5 9-9 12s-11-1-7-5 8-7 10-13c1.304-3.912 1-6 3-7z"/>
+        <path fill="#FFD983" d="M31 8c0 3-1 9-4 13s-7 5-4 1 5-7 6-11 2-7 2-3z"/>
+        <path fill="#FFCC4D" d="M22 20c-.296.592 1.167-3.833-3-6-1.984-1.032-10 1-4 1 3 0 4 2 2 4-.291.292-.489.603-.622.912-.417.346-.873.709-1.378 1.088-2.263 1.697-5.84 4.227-10 7-3 2-4 3-4 4 0 3 9 3 14 1s10-7 10-7l4-4c-3-4-7-2-7-2z"/>
+        <path fill="#FFE8B6" d="M22 20s1.792-4.729-3-7c-4.042-1.916-8-1-11 1s-2 4-3 5 1 2 3 0 8.316-4.895 11-4c3 1 2 2.999 3 5z"/>
+        <path fill="#A6D388" d="M26 35h-4c-2 0-3 1-4 1s-2-2 0-2 4 0 5-1 5 2 3 2z"/>
+        <circle fill="#3E721D" cx="18" cy="35" r="1"/>
+        <path fill="#FFCC4D" d="M32.208 28S28 35 26 35h-4c-2 0 0-1 1-2s5 0 5-6c0-3 4.208 1 4.208 1z"/>
+        <path fill="#FFE8B6" d="M26 19c3 0 8 3 7 9s-5 7-7 7h-2c-2 0-1-1 0-2s4 0 4-6c0-3-4-7-6-7 0 0 2-1 4-1z"/>
+        <path fill="#FFD983" d="M17 21c3 0 5 1 3 3-1.581 1.581-6 5-10 6s-8 1-5-1 9.764-8 12-8z"/>
+        <path fill="#C1694F" d="M2 31c1 0 1 0 1 .667C3 32.333 3 33 2 33s-1-1.333-1-1.333S1 31 2 31z"/>
+      </g>
+
+      {/* PASSION FRUIT — custom geometric, on magenta block */}
+      <g transform="translate(1200, 350)">
+        <circle cx="85" cy="85" r="80" fill="#F9A825" />
+        <circle cx="85" cy="85" r="65" fill="#FFF8E1" />
         {[
-          [60, 95, -15], [100, 82, 5], [140, 100, 12],
-          [80, 120, -8], [125, 115, 8], [100, 138, 0],
-        ].map(([cx, cy, rot], i) => (
-          <ellipse key={`ws${i}`} cx={cx} cy={cy} rx="4" ry="6" fill="#880E4F"
-            transform={`rotate(${rot} ${cx} ${cy})`} />
-        ))}
-      </g>
-
-      {/* PASSION FRUIT — right center, on blue/magenta blocks */}
-      <g transform="translate(1140, 360)">
-        <circle cx="70" cy="70" r="68" fill="#F9A825" />
-        <circle cx="70" cy="70" r="58" fill="#FFAB00" />
-        <circle cx="70" cy="70" r="48" fill="#FFF8E1" />
-        {[
-          [48, 44], [68, 40], [88, 46], [98, 58],
-          [40, 62], [60, 56], [80, 58], [94, 68],
-          [44, 82], [64, 76], [84, 78], [96, 88],
-          [52, 96], [72, 92], [88, 96],
+          [52, 52], [75, 46], [98, 54], [112, 68],
+          [44, 72], [68, 66], [92, 68], [116, 80],
+          [50, 94], [74, 88], [96, 90], [114, 102],
+          [60, 112], [84, 108], [104, 114],
         ].map(([cx, cy], i) => (
-          <circle key={`ps${i}`} cx={cx} cy={cy} r={i % 3 === 0 ? 5 : 4} fill="#E65100" />
+          <circle key={`ps${i}`} cx={cx} cy={cy} r={i % 3 === 0 ? 6 : 5} fill="#E65100" />
         ))}
       </g>
 
-      {/* ORANGE HALF — bottom, on purple block */}
-      <g transform="translate(440, 740)">
-        <path d="M0 70 A70 70 0 0 1 140 70 L0 70Z" fill="#FF9800" />
-        <path d="M8 70 A60 60 0 0 1 132 70 L8 70Z" fill="#FFB74D" />
-        {[0, 30, 60, 90, 120, 150, 180].map((a) => {
+      {/* ORANGE HALF — custom geometric, on purple block */}
+      <g transform="translate(420, 710) scale(1.3)">
+        <path d="M0 65 A65 65 0 0 1 130 65 Z" fill="#FF9800" />
+        <path d="M8 65 A57 57 0 0 1 122 65 Z" fill="#FFB74D" />
+        {[0, 25, 50, 75, 100, 125, 150, 180].map((a) => {
           const r = (a * Math.PI) / 180;
-          return <line key={`o${a}`} x1="70" y1="70" x2={70 + Math.cos(r) * 55} y2={70 - Math.sin(r) * 55} stroke="#FF9800" strokeWidth="2.5" />;
+          return (
+            <line key={`o${a}`} x1="65" y1="65"
+              x2={65 + Math.cos(r) * 52} y2={65 - Math.sin(r) * 52}
+              stroke="#FF9800" strokeWidth="2.5" />
+          );
         })}
-        <circle cx="70" cy="70" r="8" fill="#E65100" />
+        <circle cx="65" cy="65" r="7" fill="#E65100" />
       </g>
 
-      {/* BANANA — peeking top right edge */}
-      <g transform="translate(1360, 10)">
-        <ellipse cx="45" cy="100" rx="42" ry="90" fill={Y} />
-        <ellipse cx="36" cy="82" rx="22" ry="50" fill="#FFF176" opacity="0.4" />
-      </g>
+      {/* Small blue circle — bottom-right variety */}
+      <circle cx="1350" cy="760" r="50" fill={B} opacity="0.7" />
+      <circle cx="1350" cy="760" r="34" fill="#BBDEFB" opacity="0.5" />
     </svg>
   );
 }
