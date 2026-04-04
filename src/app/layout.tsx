@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     "desayunos baratos Huancayo",
   ],
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: "/landing-tio-tony/icon.png",
+    apple: "/landing-tio-tony/apple-icon.png",
   },
   openGraph: {
     title: "El Tío Tony — Juguería & Desayunos",
