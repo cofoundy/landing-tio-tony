@@ -35,6 +35,21 @@ export const metadata: Metadata = {
       "Desayunos nutritivos, jugos naturales y combos desde S/1.50 en El Tambo, Huancayo.",
     type: "website",
     locale: "es_PE",
+    images: [
+      {
+        url: "/landing-tio-tony/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "El Tío Tony — Juguería & Desayunos en Huancayo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "El Tío Tony — Juguería & Desayunos",
+    description:
+      "Desayunos nutritivos, jugos naturales y combos desde S/1.50 en El Tambo, Huancayo.",
+    images: ["/landing-tio-tony/images/og-image.png"],
   },
 };
 
