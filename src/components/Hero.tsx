@@ -30,7 +30,7 @@ export default function Hero() {
             </h1>
 
             <p className="hero-animate hero-animate-delay-1 mt-1 font-display text-xl font-medium text-accent md:text-2xl">
-              Juguería & Desayunos
+              Jugos, desayunos & más
             </p>
 
             <p className="hero-animate hero-animate-delay-2 mt-5 max-w-lg font-body text-base leading-relaxed text-white/90 md:text-lg">

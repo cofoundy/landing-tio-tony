@@ -1,5 +1,17 @@
 const CATEGORIES = [
   {
+    name: "Combos",
+    emoji: "⭐",
+    gradient: "from-primary/20 to-primary/5",
+    accent: "text-primary",
+    featured: true,
+    items: [
+      { name: "Universitario", desc: "Quinua + 2 panes", price: "S/4.00" },
+      { name: "Clásico", desc: "Pan con pollo + café", price: "S/5.00" },
+      { name: "Power", desc: "Empanada + café", price: "S/6.00" },
+    ],
+  },
+  {
     name: "Desayunos Calientes",
     emoji: "☕",
     gradient: "from-orange/20 to-orange/5",
@@ -7,8 +19,8 @@ const CATEGORIES = [
     items: [
       { name: "Quinua Especial", desc: "Piña + manzana de agua + membrillo", price: "S/1.50" },
       { name: "Maca Energética", desc: "Bebida caliente de maca", price: "S/1.50" },
-      { name: "Café Pasado", desc: "Café tradicional", price: "S/2.00" },
-      { name: "Café con leche", desc: "Clásico cremoso", price: "S/2.50" },
+      { name: "Café Pasado", desc: "Café tradicional", price: "S/2.50" },
+      { name: "Café con leche", desc: "Clásico cremoso", price: "S/3.00" },
       { name: "Infusiones", desc: "Hierbas naturales", price: "S/1.50" },
     ],
   },
@@ -24,17 +36,16 @@ const CATEGORIES = [
       { name: "Pan con hot dog + huevo", desc: "Combo rendidor", price: "S/1.50" },
       { name: "Pan con palta", desc: "Cremoso y nutritivo", price: "S/1.50" },
       { name: "Pan con huevo", desc: "El de siempre", price: "S/1.50" },
-      { name: "Pan con pollo", desc: "El más pedido", price: "S/2.50" },
+      { name: "Pan con pollo", desc: "El más pedido", price: "S/3.00" },
     ],
   },
   {
     name: "Jugos Especiales",
     emoji: "🍹",
-    gradient: "from-primary/20 to-primary/5",
-    accent: "text-primary",
-    featured: true,
+    gradient: "from-secondary/20 to-secondary/5",
+    accent: "text-secondary",
     items: [
-      { name: "Especial de la casa", desc: "La receta del Tío Tony", price: "S/6.00" },
+      { name: "Jugo especial", desc: "La receta del Tío Tony", price: "S/6.00" },
       { name: "Jugo surtido", desc: "Mix de temporada", price: "S/5.00" },
     ],
   },
@@ -78,7 +89,7 @@ const CATEGORIES = [
       { name: "Fresa", desc: "Natural", price: "S/5.00" },
       { name: "Fresa con leche", desc: "Cremosa", price: "S/6.50" },
       { name: "Fresa con piña", desc: "Tropical", price: "S/5.00" },
-      { name: "Fresa + arándanos con leche", desc: "Antioxidante", price: "S/7.00" },
+      { name: "Fresa + arándanos con leche", desc: "Antioxidante", price: "S/8.00" },
     ],
   },
   {
@@ -87,10 +98,7 @@ const CATEGORIES = [
     gradient: "from-yellow-500/20 to-yellow-500/5",
     accent: "text-yellow-600",
     items: [
-      { name: "Plátano", desc: "Natural", price: "S/4.50" },
-      { name: "Plátano con leche", desc: "Cremoso", price: "S/5.00" },
-      { name: "Plátano + papaya con leche", desc: "Energético", price: "S/5.50" },
-      { name: "Plátano + arándanos con leche", desc: "Antioxidante", price: "S/7.00" },
+      { name: "Plátano con leche", desc: "Cremoso", price: "S/7.00" },
       { name: "Plátano + arándanos", desc: "Mix de frutas", price: "S/6.00" },
       { name: "Plátano + fresa con leche", desc: "Cremoso y frutal", price: "S/7.00" },
     ],
@@ -107,14 +115,26 @@ const CATEGORIES = [
     ],
   },
   {
+    name: "Cócteles & Postres",
+    emoji: "🍸",
+    gradient: "from-purple-500/20 to-purple-500/5",
+    accent: "text-purple-600",
+    items: [
+      { name: "Pisco sour de limón", desc: "Clásico peruano", price: "S/3.50" },
+      { name: "Chicha morada con pisco", desc: "Tradicional con toque", price: "S/3.50" },
+      { name: "Maracuyá sour", desc: "Refrescante y tropical", price: "S/3.50" },
+      { name: "Cheesecake fresa y maracuyá", desc: "Postre de la casa", price: "S/3.50" },
+    ],
+  },
+  {
     name: "Extras",
     emoji: "🍨",
     gradient: "from-cyan/20 to-cyan/5",
     accent: "text-cyan",
     items: [
-      { name: "Ensalada de fruta", desc: "Fruta fresca picada", price: "S/4.50" },
+      { name: "Ensalada de fruta", desc: "Fruta fresca picada", price: "S/5.00" },
       { name: "Gelatina", desc: "Postre clásico", price: "S/1.00" },
-      { name: "Marcianos (Happy Chubs)", desc: "Helados artesanales", price: "S/1.00" },
+      { name: "Marcianos (Happy Chubs)", desc: "Helados artesanales", price: "—" },
     ],
   },
 ];
