@@ -35,7 +35,7 @@ export default function CtaBanner() {
             Pedir ahora
           </a>
           <a
-            href="https://www.google.com/maps/search/Av+José+Olaya+Mz+39+Lt+13+El+Tambo+Huancayo"
+            href="https://maps.app.goo.gl/D4XyrPfpXNAZUBdi9"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border-2 border-white/40 px-8 py-4 font-body text-base font-bold text-white transition-colors hover:border-white hover:bg-white/10"
