@@ -1,25 +1,57 @@
 const CATEGORIES = [
   {
-    name: "Combos",
-    emoji: "⭐",
+    name: "Jugos",
+    emoji: "🍊",
     gradient: "from-primary/20 to-primary/5",
     accent: "text-primary",
-    featured: true,
     items: [
-      { name: "Universitario", desc: "Quinua + 2 panes", price: "S/4.00" },
-      { name: "Clásico", desc: "Pan con pollo + café", price: "S/5.00" },
-      { name: "Power", desc: "Empanada + café", price: "S/6.00" },
+      { name: "Naranja", desc: "Recién exprimido", price: "S/3.00" },
+      { name: "Papaya", desc: "Natural", price: "S/4.50" },
+      { name: "Piña", desc: "Refrescante", price: "S/4.50" },
+      { name: "Plátano", desc: "Energético", price: "S/4.50" },
+      { name: "Mango", desc: "Tropical", price: "S/4.50" },
+      { name: "Fresa", desc: "Natural", price: "S/6.00" },
+      { name: "Surtido", desc: "Mix de temporada", price: "S/5.00" },
+      { name: "Especial", desc: "La receta del Tío Tony", price: "S/8.00" },
     ],
   },
   {
-    name: "Desayunos Calientes",
+    name: "Mixtos",
+    emoji: "🥤",
+    gradient: "from-secondary/20 to-secondary/5",
+    accent: "text-secondary",
+    items: [
+      { name: "Papaya + Plátano", desc: "Combinación clásica", price: "S/4.50" },
+      { name: "Papaya + Piña", desc: "Tropical", price: "S/4.50" },
+      { name: "Fresa + Piña", desc: "Dulce y refrescante", price: "S/5.50" },
+      { name: "Plátano + Arándanos", desc: "Antioxidante", price: "S/7.00" },
+      { name: "Mango + Papaya", desc: "Vitaminado", price: "S/6.00" },
+    ],
+  },
+  {
+    name: "Combinados",
+    emoji: "🥛",
+    gradient: "from-pink-500/20 to-pink-500/5",
+    accent: "text-pink-500",
+    featured: true,
+    items: [
+      { name: "Papaya con leche", desc: "Cremosa", price: "S/5.50" },
+      { name: "Plátano con leche", desc: "Cremoso", price: "S/5.50" },
+      { name: "Fresa con leche", desc: "Cremosa", price: "S/7.00" },
+      { name: "Mango con leche", desc: "Tropical cremoso", price: "S/6.00" },
+      { name: "Fresa + Arándanos con leche", desc: "Antioxidante", price: "S/8.00" },
+      { name: "Plátano + Arándanos con leche", desc: "Energético", price: "S/7.00" },
+      { name: "Plátano + Papaya con leche", desc: "Cremoso y frutal", price: "S/5.50" },
+      { name: "Plátano + Fresa con leche", desc: "Dulce y cremoso", price: "S/7.00" },
+    ],
+  },
+  {
+    name: "Bebidas Calientes",
     emoji: "☕",
     gradient: "from-orange/20 to-orange/5",
     accent: "text-orange",
     items: [
-      { name: "Quinua Especial", desc: "Piña + manzana de agua + membrillo", price: "S/1.50" },
-      { name: "Maca Energética", desc: "Bebida caliente de maca", price: "S/1.50" },
-      { name: "Café Pasado", desc: "Café tradicional", price: "S/2.50" },
+      { name: "Café Pasado", desc: "Café tradicional", price: "S/2.00" },
       { name: "Café con leche", desc: "Clásico cremoso", price: "S/3.00" },
       { name: "Infusiones", desc: "Hierbas naturales", price: "S/1.50" },
     ],
@@ -30,111 +62,56 @@ const CATEGORIES = [
     gradient: "from-accent/20 to-accent/5",
     accent: "text-orange",
     items: [
-      { name: "Pan con queso", desc: "Clásico calentito", price: "S/1.50" },
-      { name: "Pan con papa rebozada", desc: "Contundente y sabroso", price: "S/1.50" },
-      { name: "Pan con tortilla de espinaca", desc: "Rico en hierro", price: "S/1.50" },
-      { name: "Pan con hot dog + huevo", desc: "Combo rendidor", price: "S/1.50" },
-      { name: "Pan con palta", desc: "Cremoso y nutritivo", price: "S/1.50" },
-      { name: "Pan con huevo", desc: "El de siempre", price: "S/1.50" },
-      { name: "Pan con pollo", desc: "El más pedido", price: "S/3.00" },
+      { name: "Pan con queso", desc: "Clásico calentito", price: "S/2.00" },
+      { name: "Pan con papa rebozada", desc: "Contundente y sabroso", price: "S/2.00" },
+      { name: "Pan con omelette", desc: "Esponjoso", price: "S/2.00" },
+      { name: "Pan con palta", desc: "Cremoso y nutritivo", price: "S/2.00" },
+      { name: "Pan con huevo", desc: "El de siempre", price: "S/2.50" },
+      { name: "Pan con pollo", desc: "El más pedido", price: "S/3.50" },
     ],
   },
   {
-    name: "Jugos Especiales",
-    emoji: "🍹",
-    gradient: "from-secondary/20 to-secondary/5",
-    accent: "text-secondary",
-    items: [
-      { name: "Jugo especial", desc: "La receta del Tío Tony", price: "S/6.00" },
-      { name: "Jugo surtido", desc: "Mix de temporada", price: "S/5.00" },
-    ],
-  },
-  {
-    name: "Naranja",
-    emoji: "🍊",
-    gradient: "from-orange/20 to-orange/5",
-    accent: "text-orange",
-    items: [
-      { name: "Naranja (botella)", desc: "Para llevar", price: "S/2.50" },
-      { name: "Naranja (vaso)", desc: "Recién exprimida", price: "S/3.00" },
-    ],
-  },
-  {
-    name: "Papaya",
-    emoji: "🥭",
-    gradient: "from-secondary/20 to-secondary/5",
-    accent: "text-secondary",
-    items: [
-      { name: "Papaya", desc: "Natural", price: "S/4.50" },
-      { name: "Papaya con leche", desc: "Cremosa", price: "S/5.50" },
-      { name: "Papaya con plátano", desc: "Energético", price: "S/4.50" },
-      { name: "Papaya con piña", desc: "Tropical", price: "S/4.50" },
-    ],
-  },
-  {
-    name: "Piña",
-    emoji: "🍍",
-    gradient: "from-accent/20 to-accent/5",
-    accent: "text-orange",
-    items: [
-      { name: "Piña", desc: "Refrescante y natural", price: "S/4.50" },
-    ],
-  },
-  {
-    name: "Fresa",
-    emoji: "🍓",
-    gradient: "from-pink-500/20 to-pink-500/5",
-    accent: "text-pink-500",
-    items: [
-      { name: "Fresa", desc: "Natural", price: "S/5.00" },
-      { name: "Fresa con leche", desc: "Cremosa", price: "S/6.50" },
-      { name: "Fresa con piña", desc: "Tropical", price: "S/5.00" },
-      { name: "Fresa + arándanos con leche", desc: "Antioxidante", price: "S/8.00" },
-    ],
-  },
-  {
-    name: "Plátano",
-    emoji: "🍌",
+    name: "Happy Chubs",
+    emoji: "🍸",
     gradient: "from-yellow-500/20 to-yellow-500/5",
     accent: "text-yellow-600",
     items: [
-      { name: "Plátano con leche", desc: "Cremoso", price: "S/7.00" },
-      { name: "Plátano + arándanos", desc: "Mix de frutas", price: "S/6.00" },
-      { name: "Plátano + fresa con leche", desc: "Cremoso y frutal", price: "S/7.00" },
+      { name: "Pisco Sour de Limón", desc: "Marciano con pisco", price: "S/3.50" },
+      { name: "Chicha Morada con Pisco", desc: "Marciano con pisco", price: "S/3.50" },
+      { name: "Maracuyá Sour", desc: "Marciano con pisco", price: "S/3.50" },
     ],
   },
   {
-    name: "Mango",
-    emoji: "🥭",
-    gradient: "from-amber-500/20 to-amber-500/5",
-    accent: "text-amber-600",
-    items: [
-      { name: "Mango", desc: "Natural", price: "S/5.00" },
-      { name: "Mango con leche", desc: "Cremoso", price: "S/6.00" },
-      { name: "Mango + papaya", desc: "Tropical", price: "S/6.00" },
-    ],
-  },
-  {
-    name: "Cócteles & Postres",
-    emoji: "🍸",
-    gradient: "from-purple-500/20 to-purple-500/5",
-    accent: "text-purple-600",
-    items: [
-      { name: "Pisco sour de limón", desc: "Clásico peruano", price: "S/3.50" },
-      { name: "Chicha morada con pisco", desc: "Tradicional con toque", price: "S/3.50" },
-      { name: "Maracuyá sour", desc: "Refrescante y tropical", price: "S/3.50" },
-      { name: "Cheesecake fresa y maracuyá", desc: "Postre de la casa", price: "S/3.50" },
-    ],
-  },
-  {
-    name: "Extras",
-    emoji: "🍨",
+    name: "Marcianos sin Alcohol",
+    emoji: "🍧",
     gradient: "from-cyan/20 to-cyan/5",
     accent: "text-cyan",
     items: [
-      { name: "Ensalada de fruta", desc: "Fruta fresca picada", price: "S/5.00" },
-      { name: "Gelatina", desc: "Postre clásico", price: "S/1.00" },
-      { name: "Marcianos (Happy Chubs)", desc: "Helados artesanales", price: "—" },
+      { name: "Cheesecake de Fresa", desc: "Cremoso y refrescante", price: "S/3.50" },
+      { name: "Cheesecake de Maracuyá", desc: "Tropical y suave", price: "S/3.50" },
+    ],
+  },
+  {
+    name: "Ensalada de Frutas",
+    emoji: "🍓",
+    gradient: "from-amber-500/20 to-amber-500/5",
+    accent: "text-amber-600",
+    items: [
+      { name: "Ensalada de frutas", desc: "Mix de frutas frescas picadas", price: "S/6.00" },
+    ],
+  },
+  {
+    name: "También tenemos",
+    emoji: "🍪",
+    gradient: "from-orange/20 to-orange/5",
+    accent: "text-orange",
+    items: [
+      { name: "Empanadas", desc: "Recién horneadas", price: "<<consultar>>" },
+      { name: "Frutos secos y granola", desc: "Para llevar", price: "<<consultar>>" },
+      { name: "Galletas", desc: "Variedad surtida", price: "<<consultar>>" },
+      { name: "Gelatinas", desc: "Postre clásico", price: "<<consultar>>" },
+      { name: "Queques", desc: "Caseros", price: "<<consultar>>" },
+      { name: "Gaseosas", desc: "Frías", price: "<<consultar>>" },
     ],
   },
 ];
@@ -200,8 +177,15 @@ export default function Menu() {
           ))}
         </div>
 
+        {/* Nota del envase */}
+        <div className="mt-8 text-center">
+          <p className="inline-block rounded-full border border-dashed border-orange/40 bg-orange/5 px-4 py-2 font-body text-sm text-text-muted">
+            Nota: se agrega <span className="font-semibold text-orange">S/1</span> por el envase si es para llevar
+          </p>
+        </div>
+
         {/* CTA after menu */}
-        <div className="mt-12 text-center">
+        <div className="mt-8 text-center">
           <a
             href="https://wa.me/51928561078?text=Hola%2C%20quiero%20hacer%20un%20pedido"
             target="_blank"
