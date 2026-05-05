@@ -1,5 +1,5 @@
 const HIGHLIGHTS = [
-  { icon: "💰", label: "Desde S/1.50", sub: "Precios universitarios" },
+  { icon: "💰", label: "Desde S/2.00", sub: "Precios universitarios" },
   { icon: "🕐", label: "7AM — 6PM", sub: "Lunes a sábado" },
   { icon: "🍊", label: "100% Natural", sub: "Fruta fresca del mercado" },
   { icon: "📲", label: "Por WhatsApp", sub: "Listo cuando llegues" },

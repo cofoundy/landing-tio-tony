@@ -35,7 +35,7 @@ export default function Hero() {
 
             <p className="hero-animate hero-animate-delay-2 mt-5 max-w-lg font-body text-base leading-relaxed text-white/90 md:text-lg">
               Desayunos nutritivos, jugos naturales y combos universitarios desde{" "}
-              <span className="font-bold text-accent">S/1.50</span>. Energía real
+              <span className="font-bold text-accent">S/2.00</span>. Energía real
               para arrancar el día.
             </p>
 

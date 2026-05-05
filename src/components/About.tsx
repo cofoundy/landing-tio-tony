@@ -42,11 +42,11 @@ export default function About() {
             {/* Quick stats */}
             <div className="mt-8 grid grid-cols-3 gap-4">
               <div className="rounded-2xl bg-primary/10 p-4 text-center">
-                <p className="font-display text-2xl font-bold text-primary">6AM</p>
+                <p className="font-display text-2xl font-bold text-primary">7AM</p>
                 <p className="font-body text-xs text-text-muted">Abrimos tempranito</p>
               </div>
               <div className="rounded-2xl bg-secondary/10 p-4 text-center">
-                <p className="font-display text-2xl font-bold text-secondary">S/1.50</p>
+                <p className="font-display text-2xl font-bold text-secondary">S/2.00</p>
                 <p className="font-body text-xs text-text-muted">Desde</p>
               </div>
               <div className="rounded-2xl bg-accent/10 p-4 text-center">

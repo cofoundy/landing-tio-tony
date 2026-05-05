@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://jugueriatiotony.com"),
   title: "El Tío Tony — Juguería & Desayunos en Huancayo",
   description:
-    "Desayunos nutritivos, jugos naturales y combos desde S/1.50. Av. José Olaya, El Tambo — Huancayo. Abierto de lunes a sábado, 7AM a 6PM.",
+    "Desayunos nutritivos, jugos naturales y combos desde S/2.00. Av. José Olaya, El Tambo — Huancayo. Abierto de lunes a sábado, 7AM a 6PM.",
   keywords: [
     "juguería Huancayo",
     "desayunos El Tambo",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "El Tío Tony — Juguería & Desayunos",
     description:
-      "Desayunos nutritivos, jugos naturales y combos desde S/1.50 en El Tambo, Huancayo.",
+      "Desayunos nutritivos, jugos naturales y combos desde S/2.00 en El Tambo, Huancayo.",
     type: "website",
     locale: "es_PE",
     images: [
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "El Tío Tony — Juguería & Desayunos",
     description:
-      "Desayunos nutritivos, jugos naturales y combos desde S/1.50 en El Tambo, Huancayo.",
+      "Desayunos nutritivos, jugos naturales y combos desde S/2.00 en El Tambo, Huancayo.",
     images: ["/images/og-image.png"],
   },
 };
