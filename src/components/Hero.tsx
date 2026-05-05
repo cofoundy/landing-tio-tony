@@ -21,7 +21,7 @@ export default function Hero() {
             <div className="hero-animate mb-4 flex items-center gap-3">
               <Image src={logoImg} alt="" width={40} height={40} className="object-contain drop-shadow-lg" />
               <p className="inline-block rounded-full bg-accent/90 px-4 py-1.5 font-body text-sm font-bold text-text">
-                Desde las 6AM en El Tambo
+                Desde las 7AM en El Tambo
               </p>
             </div>
 
