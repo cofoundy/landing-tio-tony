@@ -1,5 +1,5 @@
 import Image from "next/image";
-import fachadaNocheImg from "@/assets/fachada-noche.webp";
+import tonyFachadaImg from "@/assets/tony-fachada.webp";
 
 export default function About() {
   return (
@@ -9,16 +9,19 @@ export default function About() {
           {/* Image */}
           <div className="scroll-animate relative overflow-hidden rounded-3xl shadow-2xl">
             <Image
-              src={fachadaNocheImg}
-              alt="El Tío Tony de noche — mural iluminado"
+              src={tonyFachadaImg}
+              alt="El Tío Tony en su local — Av. José Olaya, El Tambo"
               width={800}
-              height={600}
+              height={1422}
               className="h-auto w-full object-cover"
               placeholder="blur"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
               <p className="font-display text-lg font-bold text-white">
-                Nuestro local en El Tambo
+                El Tío Tony en persona
+              </p>
+              <p className="font-body text-sm text-white/90">
+                Av. José Olaya, El Tambo
               </p>
             </div>
           </div>
