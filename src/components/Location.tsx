@@ -68,7 +68,7 @@ export default function Location() {
               <div className="space-y-1 font-body text-base text-text-muted">
                 <p>
                   <span className="font-semibold text-text">Lunes a sábado:</span>{" "}
-                  6:00 AM — 3:00 PM
+                  7:00 AM — 6:00 PM
                 </p>
                 <p>
                   <span className="font-semibold text-text">Domingo:</span>{" "}

@@ -29,6 +29,16 @@ const CATEGORIES = [
     ],
   },
   {
+    name: "Extractos",
+    emoji: "🥬",
+    gradient: "from-emerald-500/20 to-emerald-500/5",
+    accent: "text-emerald-600",
+    items: [
+      { name: "Extracto Verde", desc: "Vegetales frescos detox", price: "<<consultar>>" },
+      { name: "Extracto de Zanahoria", desc: "Antioxidante natural", price: "<<consultar>>" },
+    ],
+  },
+  {
     name: "Combinados",
     emoji: "🥛",
     gradient: "from-pink-500/20 to-pink-500/5",
